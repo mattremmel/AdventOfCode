@@ -84,17 +84,20 @@ total?
 
 Answer: 208437
 */
+
+type Calories = u32;
+
 pub struct Day1;
 
 impl Challenge for Day1 {
-    type Ret = u32;
+    type Ret = Calories;
 
     fn part1<T>(input: T) -> Self::Ret
     where
         T: AsRef<str>,
     {
         Day1::inventory_iter(input.as_ref())
-            .map(|inv| inv.sum::<u32>())
+            .map(|inv| inv.sum::<Calories>())
             .max()
             .unwrap()
     }
@@ -104,20 +107,22 @@ impl Challenge for Day1 {
         T: AsRef<str>,
     {
         Day1::inventory_iter(input.as_ref())
-            .map(|inv| inv.sum::<u32>())
+            .map(|inv| inv.sum::<Calories>())
             .sorted()
             .rev()
             .take(3)
-            .sum::<u32>()
+            .sum::<Calories>()
     }
 }
 
 impl Day1 {
-    fn inventory_iter(input: &str) -> impl Iterator<Item = impl Iterator<Item = u32> + '_> + '_ {
+    fn inventory_iter(
+        input: &str,
+    ) -> impl Iterator<Item = impl Iterator<Item = Calories> + '_> + '_ {
         input
             // TODO: Handle \r\n line endings
             .split("\n\n")
-            .map(|inv| inv.lines().map(|item| item.parse::<u32>().unwrap()))
+            .map(|inv| inv.lines().map(|item| item.parse::<Calories>().unwrap()))
     }
 }
 
