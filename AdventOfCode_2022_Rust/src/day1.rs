@@ -77,10 +77,8 @@ total?
 
 Answer: 208437
  */
-
-type Calories = u32;
-
 pub struct Day1;
+type Calories = u32;
 
 impl Challenge for Day1 {
     type Ret = Calories;
