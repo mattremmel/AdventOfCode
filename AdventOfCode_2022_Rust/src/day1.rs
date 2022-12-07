@@ -137,12 +137,12 @@ mod tests {
 10000";
 
     #[test]
-    fn day1_part1() {
+    fn part1() {
         assert_eq!(Day1::part1(TEST_INPUT), 24000);
     }
 
     #[test]
-    fn day1_part2() {
+    fn part2() {
         assert_eq!(Day1::part2(TEST_INPUT), 45000);
     }
 }
