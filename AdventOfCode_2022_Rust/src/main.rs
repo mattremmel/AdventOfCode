@@ -65,6 +65,7 @@ above, this is 24000 (carried by the fourth Elf).
 
 Find the Elf carrying the most Calories. How many total Calories is that Elf carrying?
 
+Answer: 69795
 
 --- Part Two ---
 By the time you calculate the answer to the Elves' question, they've already realized that the Elf
@@ -80,6 +81,8 @@ by these three elves is 45000.
 
 Find the top three Elves carrying the most Calories. How many Calories are those Elves carrying in
 total?
+
+Answer: 208437
 */
 pub struct Day1;
 
@@ -90,15 +93,8 @@ impl Challenge for Day1 {
     where
         T: AsRef<str>,
     {
-        input
-            .as_ref()
-            .split("\n\n")
-            .map(|inventory| {
-                inventory
-                    .lines()
-                    .map(|item| item.parse::<u32>().unwrap())
-                    .sum::<u32>()
-            })
+        Day1::inventory_iter(input.as_ref())
+            .map(|inv| inv.sum::<u32>())
             .max()
             .unwrap()
     }
@@ -107,19 +103,21 @@ impl Challenge for Day1 {
     where
         T: AsRef<str>,
     {
-        input
-            .as_ref()
-            .split("\n\n")
-            .map(|inventory| {
-                inventory
-                    .lines()
-                    .map(|item| item.parse::<u32>().unwrap())
-                    .sum::<u32>()
-            })
+        Day1::inventory_iter(input.as_ref())
+            .map(|inv| inv.sum::<u32>())
             .sorted()
             .rev()
             .take(3)
             .sum::<u32>()
+    }
+}
+
+impl Day1 {
+    fn inventory_iter(input: &str) -> impl Iterator<Item = impl Iterator<Item = u32> + '_> + '_ {
+        input
+            // TODO: Handle \r\n line endings
+            .split("\n\n")
+            .map(|inv| inv.lines().map(|item| item.parse::<u32>().unwrap()))
     }
 }
 
