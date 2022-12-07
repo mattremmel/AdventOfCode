@@ -121,7 +121,7 @@ impl Day1 {
 mod tests {
     use super::*;
 
-    const DAY1_INPUT: &str = "1000
+    const TEST_INPUT: &str = "1000
 2000
 3000
 
@@ -138,11 +138,11 @@ mod tests {
 
     #[test]
     fn day1_part1() {
-        assert_eq!(Day1::part1(DAY1_INPUT), 24000);
+        assert_eq!(Day1::part1(TEST_INPUT), 24000);
     }
 
     #[test]
     fn day1_part2() {
-        assert_eq!(Day1::part2(DAY1_INPUT), 45000);
+        assert_eq!(Day1::part2(TEST_INPUT), 45000);
     }
 }
