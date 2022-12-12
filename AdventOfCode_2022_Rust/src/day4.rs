@@ -112,7 +112,7 @@ where
         .map(|line| line.split(',').next_tuple::<(_, _)>().unwrap())
         .map(|(lhs, rhs)| (to_range(lhs), to_range(rhs)))
         .map(|(lhs, rhs)| f(lhs, rhs))
-        .map(Assignment::from)
+        .map(Output::from)
         .sum::<Output>()
 }
 
