@@ -6,8 +6,15 @@ version = 3
 name = "advent_of_code_2022"
 version = "0.1.0"
 dependencies = [
+ "bittle",
  "itertools",
 ]
+
+[[package]]
+name = "bittle"
+version = "0.4.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d1b31d631988ae144198083b6b245215f9cd81cfeaf3efc1b99ecf6948b7db5a"
 
 [[package]]
 name = "either"
