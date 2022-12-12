@@ -92,18 +92,18 @@ impl Challenge for Day4 {
     where
         T: AsRef<str>,
     {
-        overlapping_fold(input.as_ref(), is_fully_overlapping)
+        range_fold(input.as_ref(), is_fully_overlapping)
     }
 
     fn part2<T>(input: T) -> Self::Ret
     where
         T: AsRef<str>,
     {
-        overlapping_fold(input.as_ref(), is_partially_overlapping)
+        range_fold(input.as_ref(), is_partially_overlapping)
     }
 }
 
-fn overlapping_fold<F>(input: &str, f: F) -> Output
+fn range_fold<F>(input: &str, f: F) -> Output
 where
     F: Fn(Range, Range) -> bool,
 {
