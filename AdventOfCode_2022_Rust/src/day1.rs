@@ -46,12 +46,12 @@ list:
 ```
 
 This list represents the Calories of the food carried by five Elves:
+- The first Elf is carrying food with 1000, 2000, and 3000 Calories, a total of 6000 Calories.
+- The second Elf is carrying one food item with 4000 Calories.
+- The third Elf is carrying food with 5000 and 6000 Calories, a total of 11000 Calories.
+- The fourth Elf is carrying food with 7000, 8000, and 9000 Calories, a total of 24000 Calories.
+- The fifth Elf is carrying one food item with 10000 Calories.
 
-The first Elf is carrying food with 1000, 2000, and 3000 Calories, a total of 6000 Calories.
-The second Elf is carrying one food item with 4000 Calories.
-The third Elf is carrying food with 5000 and 6000 Calories, a total of 11000 Calories.
-The fourth Elf is carrying food with 7000, 8000, and 9000 Calories, a total of 24000 Calories.
-The fifth Elf is carrying one food item with 10000 Calories.
 In case the Elves get hungry and need extra snacks, they need to know which Elf to ask: they'd like
 to know how many Calories are being carried by the Elf carrying the most Calories. In the example
 above, this is 24000 (carried by the fourth Elf).
@@ -87,10 +87,7 @@ impl Challenge for Day1 {
     where
         T: AsRef<str>,
     {
-        Day1::inventory_iter(input.as_ref())
-            .map(|inv| inv.sum::<Calories>())
-            .max()
-            .unwrap()
+        Day1::inventory_iter(input.as_ref()).max().unwrap()
     }
 
     fn part2<T>(input: T) -> Self::Ret
@@ -98,7 +95,6 @@ impl Challenge for Day1 {
         T: AsRef<str>,
     {
         Day1::inventory_iter(input.as_ref())
-            .map(|inv| inv.sum::<Calories>())
             .sorted()
             .rev()
             .take(3)
@@ -107,13 +103,12 @@ impl Challenge for Day1 {
 }
 
 impl Day1 {
-    fn inventory_iter(
-        input: &str,
-    ) -> impl Iterator<Item = impl Iterator<Item = Calories> + '_> + '_ {
+    fn inventory_iter(input: &str) -> impl Iterator<Item = Calories> + '_ {
         input
             // TODO: Handle \r\n line endings
             .split("\n\n")
             .map(|inv| inv.lines().map(|item| item.parse::<Calories>().unwrap()))
+            .map(|inv| inv.sum::<Calories>())
     }
 }
 
