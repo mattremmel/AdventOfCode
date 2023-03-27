@@ -41,7 +41,7 @@ The third rucksack's compartments contain PmmdzqPrV and vPwwTWBwg; the only comm
 uppercase P.
 - The fourth rucksack's compartments only share item type v.
 - The fifth rucksack's compartments only share item type t.
--The sixth rucksack's compartments only share item type s.
+- The sixth rucksack's compartments only share item type s.
 
 To help prioritize item rearrangement, every item type can be converted to a priority:
 - Lowercase item types a through z have priorities 1 through 26.

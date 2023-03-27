@@ -3,6 +3,7 @@ use day1::Day1;
 use day2::Day2;
 use day3::Day3;
 use day4::Day4;
+use day5::Day5;
 use std::fs;
 
 mod common;
@@ -10,6 +11,7 @@ mod day1;
 mod day2;
 mod day3;
 mod day4;
+mod day5;
 
 fn main() {
     // Day 1
@@ -31,4 +33,9 @@ fn main() {
     let day4_input = fs::read_to_string("./inputs/day4.txt").unwrap();
     println!("Day 4 - Part 1: {}", Day4::part1(&day4_input));
     println!("Day 4 - Part 2: {}", Day4::part2(&day4_input));
+
+    // Day 5
+    let day5_input = fs::read_to_string("./inputs/day5.txt").unwrap();
+    println!("Day 5 - Part 1: {}", Day5::part1(&day5_input));
+    println!("Day 5 - Part 2: {}", Day5::part2(&day5_input));
 }
